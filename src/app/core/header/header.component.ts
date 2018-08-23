@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Route, Router} from '@angular/router';
 
 import { NavigateModel } from './navigate-model';
 
@@ -11,16 +12,29 @@ export class HeaderComponent implements OnInit {
 
   navItems: NavigateModel[] = [
     {
-      displayName: 'item 1'
-    },
-    {
-      displayName: 'item 2'
+      displayName: 'Events',
+      route: '/events'
     }
   ];
 
-  constructor() { }
+  authItems: NavigateModel[] = [
+    {
+      displayName: 'Login',
+      route: '/login'
+    },
+    {
+      displayName: 'Register',
+      route: '/register'
+    }
+  ];
+
+  constructor(private _router: Router) { }
 
   ngOnInit() {
+  }
+
+  routePage(page: string) {
+    this._router.navigate([page]);
   }
 
 }

@@ -5,3 +5,7 @@
 .right-spiner {
   flex: 1 1 auto;
 }
+
+.left-menu-group {
+  margin-left: 20px;
+}

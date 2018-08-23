@@ -8,6 +8,8 @@ import { FooterComponent } from './footer/footer.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { LoginComponent } from './login/login.component';
 import { MaterialModule } from '../material.module';
+import { RegisterComponent } from './register/register.component';
+import { EventsComponent } from './events/events.component';
 
 @NgModule({
   imports: [
@@ -15,7 +17,7 @@ import { MaterialModule } from '../material.module';
     CoreRoutingModule,
     MaterialModule
   ],
-  declarations: [HeaderComponent, FooterComponent, NotFoundComponent, LoginComponent],
+  declarations: [HeaderComponent, FooterComponent, NotFoundComponent, LoginComponent, RegisterComponent, EventsComponent],
   exports: [
     RouterModule,
     HeaderComponent,

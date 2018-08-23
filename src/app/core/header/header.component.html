@@ -2,10 +2,14 @@
   <mat-toolbar color="primary">
     <span>TfModule</span>
 
-    <span class="right-spiner"></span>
+    <div *ngFor="let item of navItems" class="left-menu-group">
+      <button mat-button (click)="routePage(item.route)">{{ item.displayName }}</button>
+    </div>
 
-    <span *ngFor="let item of navItems">
-      {{ item.displayName }}
-    </span>
+    <div class="right-spiner"></div>
+
+    <div *ngFor="let item of authItems">
+      <button mat-button (click)="routePage(item.route)">{{ item.displayName }}</button>
+    </div>
   </mat-toolbar>
 </div>
