@@ -1,3 +1,11 @@
-<p>
-  header works!
-</p>
+<div class="basic-container">
+  <mat-toolbar color="primary">
+    <span>TfModule</span>
+
+    <span class="right-spiner"></span>
+
+    <span *ngFor="let item of navItems">
+      {{ item.displayName }}
+    </span>
+  </mat-toolbar>
+</div>
