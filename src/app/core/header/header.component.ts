@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Route, Router} from '@angular/router';
+import { Router } from '@angular/router';
 
 import { NavigateModel } from './navigate-model';
 
@@ -14,6 +14,10 @@ export class HeaderComponent implements OnInit {
     {
       displayName: 'Events',
       route: '/events'
+    },
+    {
+      displayName: 'Users',
+      route: '/users'
     }
   ];
 

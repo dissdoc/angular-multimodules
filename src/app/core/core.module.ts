@@ -10,6 +10,7 @@ import { LoginComponent } from './login/login.component';
 import { MaterialModule } from '../material.module';
 import { RegisterComponent } from './register/register.component';
 import { EventsComponent } from './events/events.component';
+import { UsersComponent } from './users/users.component';
 
 @NgModule({
   imports: [
@@ -17,7 +18,7 @@ import { EventsComponent } from './events/events.component';
     CoreRoutingModule,
     MaterialModule
   ],
-  declarations: [HeaderComponent, FooterComponent, NotFoundComponent, LoginComponent, RegisterComponent, EventsComponent],
+  declarations: [HeaderComponent, FooterComponent, NotFoundComponent, LoginComponent, RegisterComponent, EventsComponent, UsersComponent],
   exports: [
     RouterModule,
     HeaderComponent,
