@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {Router} from '@angular/router';
 
 import { LoginModel } from './login.model';
+import { AuthService } from '../../_shared/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +19,9 @@ export class LoginComponent implements OnInit {
 
   loginGroup: FormGroup;
 
-  constructor(private _fb: FormBuilder) {
+  constructor(private _fb: FormBuilder,
+              private _authService: AuthService,
+              private _router: Router) {
     this.loginGroup = _fb.group({
       name: [this.loginModel.name, Validators.required],
       password: [this.loginModel.password, Validators.required]
@@ -42,6 +46,8 @@ export class LoginComponent implements OnInit {
   login(form) {
     this.loginModel.name = form.name;
     this.loginModel.password = form.password;
+
+    this._authService.login(this.loginModel).subscribe(() => this._router.navigate(['/users']));
   }
 
 }

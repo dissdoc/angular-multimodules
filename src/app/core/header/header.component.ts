@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { NavigateModel } from './navigate-model';
+import { AuthService } from '../../_shared/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -10,14 +11,18 @@ import { NavigateModel } from './navigate-model';
 })
 export class HeaderComponent implements OnInit {
 
+  isAuthenticated: boolean;
+
   navItems: NavigateModel[] = [
     {
       displayName: 'Events',
-      route: '/events'
+      route: '/events',
+      disable: true
     },
     {
       displayName: 'Users',
-      route: '/users'
+      route: '/users',
+      disable: this.isAuthenticated
     }
   ];
 
@@ -32,7 +37,10 @@ export class HeaderComponent implements OnInit {
     }
   ];
 
-  constructor(private _router: Router) { }
+  constructor(private _router: Router,
+              private _authService: AuthService) {
+    this.isAuthenticated = _authService.loggedIn();
+  }
 
   ngOnInit() {
   }

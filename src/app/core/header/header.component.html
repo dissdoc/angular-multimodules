@@ -3,7 +3,7 @@
     <span>TfModule</span>
 
     <div *ngFor="let item of navItems" class="left-menu-group">
-      <button mat-button (click)="routePage(item.route)">{{ item.displayName }}</button>
+      <button mat-button (click)="routePage(item.route)" *ngIf="item.disable">{{ item.displayName }}</button>
     </div>
 
     <div class="right-spiner"></div>
