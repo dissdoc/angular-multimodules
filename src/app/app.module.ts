@@ -1,12 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { InMemoryEventsService } from './data/in-memory-events.service';
+import {TokenInterceptorService} from './_shared/token-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,13 @@ import { InMemoryEventsService } from './data/in-memory-events.service';
       InMemoryEventsService, {dataEncapsulation: false}
     )
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

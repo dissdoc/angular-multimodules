@@ -6,6 +6,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { EventsComponent } from './events/events.component';
 import { UsersComponent } from './users/users.component';
+import { AuthGuard } from '../_shared/auth.guard';
 
 
 const routes: Routes = [
@@ -16,7 +17,8 @@ const routes: Routes = [
   },
   {
     path: 'admin',
-    loadChildren: '../admin/admin.module#AdminModule'
+    loadChildren: '../admin/admin.module#AdminModule',
+    canActivate: [AuthGuard]
   },
   {
     path: 'login',
@@ -32,7 +34,8 @@ const routes: Routes = [
   },
   {
     path: 'users',
-    component: UsersComponent
+    component: UsersComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: '**',
