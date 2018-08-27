@@ -1,4 +1,18 @@
-<p>
-  login works!
-  <button mat-raised-button color="primary">Primary</button>
-</p>
+<h4>Login</h4>
+
+<form [formGroup]="loginGroup" (ngSubmit)="login(loginGroup.value)">
+  <div class="example-container">
+    <mat-form-field>
+      <input matInput placeholder="Input" formControlName="name" [(ngModel)]="loginModel.name">
+    </mat-form-field>
+    <app-validator-message [field]="loginGroup.get('name')"></app-validator-message>
+
+    <mat-form-field>
+      <input matInput type="password" placeholder="Password" formControlName="password" [(ngModel)]="loginModel.password">
+    </mat-form-field>
+    <app-validator-message [field]="loginGroup.get('password')"></app-validator-message>
+
+    <button mat-raised-button color="warn" [disabled]="!loginGroup.valid">Login</button>
+  </div>
+</form>
+

@@ -6,9 +6,7 @@ import { catchError, tap } from 'rxjs/operators';
 
 import { UserModel } from './user.model';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class UsersService {
 
   private usersUrl = 'app/users';
@@ -20,7 +18,7 @@ export class UsersService {
       .pipe(
         tap(users => console.log('fetched users')),
         catchError(this.handleError('getUsers', []))
-      )
+      );
   }
 
   private handleError<T> (operation = 'operation', result?: T) {

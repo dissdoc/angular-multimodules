@@ -6,9 +6,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 
 import { EventModel } from './event.model';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class EventsService {
 
   private eventsUrl = 'app/events';

@@ -1,3 +1,25 @@
-<p>
-  register works!
-</p>
+<h4>Register</h4>
+
+<form [formGroup]="registerForm" (ngSubmit)="register()">
+  <div class="example-container">
+    <mat-form-field>
+      <input matInput placeholder="Name" formControlName="name" [(ngModel)]="registerModel.name">
+    </mat-form-field>
+    <app-validator-message [field]="registerForm.get('name')"></app-validator-message>
+
+    <fieldset formGroupName="password">
+      <mat-form-field>
+        <input matInput placeholder="Password" formControlName="pwd" [(ngModel)]="registerModel.password">
+      </mat-form-field>
+      <app-validator-message [field]="registerForm.get('password.pwd')"></app-validator-message>
+
+      <mat-form-field>
+        <input matInput placeholder="Password confirm" formControlName="confirm">
+      </mat-form-field>
+      <app-validator-message [field]="registerForm.get('password.confirm')"></app-validator-message>
+    </fieldset>
+    <app-validator-message [field]="registerForm.get('password')"></app-validator-message>
+
+    <button mat-raised-button color="accent" [disabled]="!registerForm.valid">Register</button>
+  </div>
+</form>

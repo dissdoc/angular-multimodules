@@ -3,17 +3,24 @@ import { CommonModule } from '@angular/common';
 
 import {
   MatButtonModule,
-  MatToolbarModule
+  MatToolbarModule,
+  MatInputModule,
 } from '@angular/material';
+
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
   imports: [
     CommonModule,
-    MatButtonModule
+    MatButtonModule,
+    MatInputModule,
+    MatFormFieldModule
   ],
   exports: [
     MatButtonModule,
-    MatToolbarModule
+    MatInputModule,
+    MatToolbarModule,
+    MatFormFieldModule
   ],
   declarations: []
 })
